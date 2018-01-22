@@ -5,3 +5,6 @@ pe.com.monitoreo/.project
 mediciones-core/.classpath
 mediciones-core/.project
 mediciones-core/target/*
+mediciones-services/.classpath
+mediciones-services/.project
+mediciones-services/target/

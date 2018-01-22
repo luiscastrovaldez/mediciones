@@ -10,6 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
+import pe.com.monitoreo.config.DBConfig;
 import pe.com.monitoreo.config.MonitoreoConfig;
 import pe.com.monitoreo.entity.Person;
 import pe.com.monitoreo.entity.Usuario;
@@ -23,7 +24,7 @@ import pe.com.monitoreo.service.PersonService;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = MonitoreoConfig.class)
+@ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = DBConfig.class)
 public class MonitoreoTest {
 
 	@Autowired

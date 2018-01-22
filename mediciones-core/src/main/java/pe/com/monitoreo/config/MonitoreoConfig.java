@@ -14,13 +14,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  *
  */
 
-@Configuration
+/*@Configuration
 @EnableTransactionManagement
 @ComponentScans(value = { @ComponentScan("pe.com.monitoreo"),
-		@ComponentScan("pe.com.monitoreo") })
+		@ComponentScan("pe.com.monitoreo") })*/
 public class MonitoreoConfig {
 
-	@Bean
+	/*@Bean
 	public LocalEntityManagerFactoryBean geEntityManagerFactoryBean() {
 		LocalEntityManagerFactoryBean factoryBean = new LocalEntityManagerFactoryBean();
 		factoryBean.setPersistenceUnitName("LOCAL_PERSISTENCE");
@@ -32,5 +32,5 @@ public class MonitoreoConfig {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(geEntityManagerFactoryBean().getObject());
 		return transactionManager;
-	}
+	}*/
 }
