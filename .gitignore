@@ -1,0 +1,7 @@
+
+pe.com.monitoreo/.classpath
+pe.com.monitoreo/.project
+*.prefs
+mediciones-core/.classpath
+mediciones-core/.project
+mediciones-core/target/*
