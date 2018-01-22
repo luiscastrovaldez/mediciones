@@ -8,3 +8,4 @@ mediciones-core/target/*
 mediciones-services/.classpath
 mediciones-services/.project
 mediciones-services/target/
+mediciones-services/.settings/org.eclipse.wst.common.project.facet.core.xml
