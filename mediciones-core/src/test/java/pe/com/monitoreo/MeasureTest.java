@@ -24,7 +24,7 @@ import pe.com.monitoreo.service.PersonService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = DBConfig.class)
-public class MonitoreoTest {
+public class MeasureTest {
 
 	@Autowired
 	private PersonService personService;
