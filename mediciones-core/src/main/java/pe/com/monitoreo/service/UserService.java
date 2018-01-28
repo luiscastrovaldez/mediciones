@@ -5,9 +5,9 @@ import java.util.List;
 
 import pe.com.monitoreo.entity.User;
 
-public interface MonitoreoService {
+public interface UserService {
 
-	void saveUser(User user);
+void saveUser(User user);
 	
 	User updateUser(User user);
 	

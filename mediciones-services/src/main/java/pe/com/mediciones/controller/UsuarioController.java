@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import pe.com.mediciones.bean.Respuesta;
-import pe.com.monitoreo.entity.Usuario;
+import pe.com.monitoreo.entity.User;
 import pe.com.monitoreo.service.MonitoreoService;
 
 @RestController
@@ -30,12 +30,12 @@ public class UsuarioController {
 	public ResponseEntity<Respuesta> userList() {		
 		Respuesta respuesta = new Respuesta();
 		try {
-			List<Usuario> usuarios = monitoreoService.listarUsuarios();
+			List<User> usuarios = monitoreoService.listarUsuarios();
 			if (usuarios.isEmpty()) {
 				respuesta.setStatus(204);
 				return new ResponseEntity<Respuesta>(respuesta, HttpStatus.NO_CONTENT);
 			}
-			for (Usuario user : usuarios) {
+			for (User user : usuarios) {
 				System.out.println(user.toString());
 			}
 			respuesta.setStatus(200);

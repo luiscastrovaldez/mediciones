@@ -1,11 +1,16 @@
-package pe.com.monitoreo.service;
+package pe.com.monitoreo.dao;
 
 import java.io.Serializable;
 import java.util.List;
 
 import pe.com.monitoreo.entity.User;
 
-public interface MonitoreoService {
+/**
+ * 
+ * @author lcastro
+ *
+ */
+public interface UserDao {
 
 	void saveUser(User user);
 	

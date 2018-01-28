@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.hibernate.annotations.NamedQuery;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -21,6 +22,16 @@ public class BaseDao<T extends Serializable> {
 	@SuppressWarnings("unchecked")
 	public List<T> findAll(Class<T> entity) {
 		return em.createQuery("from " + entity.getName()).getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<T> findByQueryOneParam(Class<T> entity, String name, Serializable userName) {
+		return em.createNamedQuery(name).setParameter(1, userName).getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<T> findByQueryTwoParam(Class<T> entity, String name, Serializable param1, Serializable param2) {
+		return em.createNamedQuery(name).setParameter(1, param1).setParameter(2, param2).getResultList();
 	}
 
 	public void create(T entity) {

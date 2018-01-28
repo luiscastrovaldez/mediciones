@@ -11,9 +11,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import pe.com.monitoreo.config.DBConfig;
-import pe.com.monitoreo.config.MonitoreoConfig;
 import pe.com.monitoreo.entity.Person;
-import pe.com.monitoreo.entity.Usuario;
+import pe.com.monitoreo.entity.User;
 import pe.com.monitoreo.service.MonitoreoService;
 import pe.com.monitoreo.service.PersonService;
 
@@ -67,10 +66,10 @@ public class MonitoreoTest {
 
 	@Test
 	public void addUsuarioTest() {
-		Usuario usuario = null;
+		User user = null;
 		try {
-			usuario = new Usuario("Luis Alberto", "Castro Valdez", "gluiscastro@gmail.com", "clave");
-			monitoreoService.saveUsuario(usuario);
+			user = new User("password","gluiscastro@gmail.com","luis.castro");
+			monitoreoService.saveUser(user);
 			Assert.assertTrue(Boolean.TRUE);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -80,14 +79,30 @@ public class MonitoreoTest {
 	}
 
 	@Test
-	public void listatoUsuariosTest() {
-		List<Usuario> usuarios = null;
+	public void findAllUsersTest() {
+		List<User> users = null;
 		try {
-			usuarios = monitoreoService.listarUsuarios();
-			for (Usuario usuario : usuarios) {
-				System.out.println(usuario.toString());
+			users = monitoreoService.findAllUsers();
+			for (User user : users) {
+				System.out.println(user.toString());
 			}
-			Assert.assertNotNull(usuarios);
+			Assert.assertNotNull(users);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			Assert.fail(e.getMessage());
+		}
+	}
+	
+	@Test
+	public void findUsuarioByUserNameTest() {
+		List<User> users = null;
+		try {
+			users = monitoreoService.findUsuarioByUserName("luis.castro");
+			for (User user : users) {
+				System.out.println(user.toString());
+			}
+			Assert.assertNotNull(users);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

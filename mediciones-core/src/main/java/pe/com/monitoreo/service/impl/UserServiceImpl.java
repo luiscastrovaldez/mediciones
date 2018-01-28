@@ -8,59 +8,62 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import pe.com.monitoreo.dao.UserDao;
 import pe.com.monitoreo.entity.User;
-import pe.com.monitoreo.service.MonitoreoService;
 import pe.com.monitoreo.service.UserService;
 
+/**
+ * 
+ * @author lcastro
+ *
+ */
+
 @Transactional
-@Service("monitoreoService")
-public class MonitoreoServiceImpl implements MonitoreoService {
+@Service("usuarioService")
+public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private UserService userService;
+	private UserDao usuarioDao;
 
-	/*@Autowired
-	private PersonService personService;*/
-
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation=Propagation.REQUIRED)
 	@Override
 	public void saveUser(User user) {
 		// TODO Auto-generated method stub
-		this.userService.saveUser(user);
+		usuarioDao.saveUser(user);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation=Propagation.REQUIRED)
 	@Override
 	public User updateUser(User user) {
 		// TODO Auto-generated method stub
-		return this.userService.updateUser(user);
+		return usuarioDao.updateUser(user);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
 	public User findUserById(Serializable id) {
 		// TODO Auto-generated method stub
-		return this.userService.findUserById(id);
+		return usuarioDao.findUserById(id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
 	public List<User> findAllUsers() {
 		// TODO Auto-generated method stub
-		return this.userService.findAllUsers();
+		return usuarioDao.findAllUsers();
 	}
 
 	@Override
 	@Transactional(readOnly = true)
 	public List<User> findUsuarioByUserName(Serializable userName) {
 		// TODO Auto-generated method stub
-		return userService.findUsuarioByUserName(userName);
+		return usuarioDao.findUsuarioByUserName(userName);
 	}
 
 	@Override
 	public List<User> findUsuarioByUserNameAndPassword(Serializable userName, Serializable password) {
 		// TODO Auto-generated method stub
-		return userService.findUsuarioByUserNameAndPassword(userName, password);
+		return usuarioDao.findUsuarioByUserNameAndPassword(userName, password);
 	}
 
 }

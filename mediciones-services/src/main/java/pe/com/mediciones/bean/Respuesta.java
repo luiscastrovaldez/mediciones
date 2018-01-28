@@ -2,7 +2,7 @@ package pe.com.mediciones.bean;
 
 import java.util.List;
 
-import pe.com.monitoreo.entity.Usuario;
+import pe.com.monitoreo.entity.User;
 
 public class Respuesta {
 
@@ -11,7 +11,7 @@ public class Respuesta {
 	}
 
 	private int status;
-	private List<Usuario> data;
+	private List<User> data;
 
 	public int getStatus() {
 		return status;
@@ -21,11 +21,11 @@ public class Respuesta {
 		this.status = status;
 	}
 
-	public List<Usuario> getData() {
+	public List<User> getData() {
 		return data;
 	}
 
-	public void setData(List<Usuario> data) {
+	public void setData(List<User> data) {
 		this.data = data;
 	}
 
