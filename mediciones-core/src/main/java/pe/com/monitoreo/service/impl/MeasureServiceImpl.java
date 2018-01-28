@@ -9,12 +9,12 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import pe.com.monitoreo.entity.User;
-import pe.com.monitoreo.service.MonitoreoService;
+import pe.com.monitoreo.service.MeasureService;
 import pe.com.monitoreo.service.UserService;
 
 @Transactional
 @Service("monitoreoService")
-public class MonitoreoServiceImpl implements MonitoreoService {
+public class MeasureServiceImpl implements MeasureService {
 
 	@Autowired
 	private UserService userService;

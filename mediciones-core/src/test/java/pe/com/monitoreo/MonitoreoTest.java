@@ -13,7 +13,7 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import pe.com.monitoreo.config.DBConfig;
 import pe.com.monitoreo.entity.Person;
 import pe.com.monitoreo.entity.User;
-import pe.com.monitoreo.service.MonitoreoService;
+import pe.com.monitoreo.service.MeasureService;
 import pe.com.monitoreo.service.PersonService;
 
 /**
@@ -30,7 +30,7 @@ public class MonitoreoTest {
 	private PersonService personService;
 
 	@Autowired
-	private MonitoreoService monitoreoService;
+	private MeasureService monitoreoService;
 
 	@Test
 	public void addPersonTest() {

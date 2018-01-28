@@ -5,7 +5,7 @@ import java.util.List;
 
 import pe.com.monitoreo.entity.User;
 
-public interface MonitoreoService {
+public interface MeasureService {
 
 	void saveUser(User user);
 	
