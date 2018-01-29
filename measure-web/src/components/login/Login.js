@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import LoginRow from './LoginRow';
 
-import Restablecer from '../login/Restablecer';
 import Register from '../login/Register';
 
 import Reflux from 'reflux';
@@ -9,8 +8,6 @@ import Reflux from 'reflux';
 import AppStore from '../../stores/AppStore';
 import Actions from '../../actions/Actions';
 import { Link, Redirect } from 'react-router-dom';
-
-
 
 import {
   BrowserRouter as Router,
@@ -69,7 +66,7 @@ class Login extends Reflux.Component {
               <LoginRow id="password" inputType="password" isRequired={true} placeholder="Clave" ref="password"/>
                 <font color="red"> {this.state.errorPassword} </font>
               <br></br>
-              <button className="btn btn-primary" onClick={this.onClickLogIn} color="primary">Ingresar</button>
+              <button className="btn btn-primary" onClick={this.onClickLogIn}>Ingresar</button>
           </form>
             <Link to="/register" >Nuevo Usuario</Link>
             <br></br>

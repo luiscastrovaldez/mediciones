@@ -55,20 +55,24 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/user/", method = RequestMethod.POST)
-	public ResponseEntity<Void> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
+	public ResponseEntity<Response> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
 		System.out.println("Creating User " + user.getUsername());
-
+		Response response = new Response();
 		List<User> users = measureService.findUserByUserName(user.getUsername());
 		if (users != null && !users.isEmpty()) {
 			System.out.println("A User with name " + user.getUsername() + " already exist");
-			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+			response.setStatus(409);
+			response.setIsLogged(Boolean.FALSE);
+			response.setMessage("Usuario existe");
+			return new ResponseEntity<Response>(response,HttpStatus.CONFLICT);
+		} else {
+			response.setStatus(200);
+			response.setIsLogged(Boolean.TRUE);
+			response.setMessage("Se creo el usuario satisfactoriamente");
 		}
 
-		measureService.saveUser(user);
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(ucBuilder.path("/user/{id}").buildAndExpand(user.getId()).toUri());
-		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+		measureService.saveUser(user);	
+		return new ResponseEntity<Response>(response, HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(value = "/user/validate", method = RequestMethod.POST)
