@@ -54,7 +54,7 @@ class Register extends Reflux.Component{
   render(){
       return(
         <div>
-          {this.state.isLogged ? <Redirect to="/"/> :
+          {this.state.isLogged ? <Redirect to="/menu"/> :
           <center>
             <font color="red"> {this.state.message} </font>
             <form onSubmit={ this.onSubmit }>
@@ -73,7 +73,7 @@ class Register extends Reflux.Component{
               <br></br>
               <button className="btn btn-primary" onClick={this.onClickNew}>Restablecer</button>
               <br></br>
-              <Link to="/menu" >Regresar</Link>
+              <Link to="/" >Regresar</Link>
             </form>
           </center>
           }
