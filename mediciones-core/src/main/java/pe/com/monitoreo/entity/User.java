@@ -19,7 +19,7 @@ import org.hibernate.annotations.NamedQuery;
 
 @Entity
 @Table(name = "USER")
-@NamedQuery(name = "findUserByusername", query = "SELECT u FROM User u WHERE u.username = ?1")
+@NamedQuery(name = "findUserByUserName", query = "SELECT u FROM User u WHERE u.username = ?1")
 @NamedQuery(name = "findUserByUserNameAndPassword", query = "SELECT u FROM User u WHERE u.username = ?1 and password = ?2")
 public class User extends Audit {
 
@@ -30,6 +30,7 @@ public class User extends Audit {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "USER_ID")
 	private Long id;
 
 	@Column(name = "PASSWORD")
@@ -38,7 +39,7 @@ public class User extends Audit {
 	@Column(name = "EMAIL")
 	private String email;
 
-	@Column(name = "username")
+	@Column(name = "USERNAME")
 	private String username;
 
 	public User() {

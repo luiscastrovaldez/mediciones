@@ -65,7 +65,7 @@ public class MeasureTest {
 	}
 
 	@Test
-	public void addUsuarioTest() {
+	public void addUserTest() {
 		User user = null;
 		try {
 			user = new User("password","gluiscastro@gmail.com","luis.castro");
