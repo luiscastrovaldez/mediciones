@@ -15,7 +15,8 @@ import pe.com.monitoreo.service.PersonService;
  * @author lcastro
  *
  */
-@Service
+@Transactional
+@Service("personService")
 public class PersonServiceImp implements PersonService {
 
    @Autowired
