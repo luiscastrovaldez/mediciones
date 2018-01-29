@@ -10,8 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
 @ComponentScan(basePackages={"pe.com"})
-public class MedicionesBootApplication {
+public class MeasureBootApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(MedicionesBootApplication.class, args);
+		SpringApplication.run(MeasureBootApplication.class, args);
 	}
 }

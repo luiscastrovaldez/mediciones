@@ -4,9 +4,9 @@ import java.util.List;
 
 import pe.com.monitoreo.entity.User;
 
-public class Respuesta {
+public class Response {
 
-	public Respuesta() {
+	public Response() {
 
 	}
 
