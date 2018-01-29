@@ -7,6 +7,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +22,7 @@ import pe.com.monitoreo.service.MeasureService;
 
 @RestController
 @RequestMapping("/services")
+@CrossOrigin
 public class UserController {
 
 	@Autowired
@@ -54,11 +56,11 @@ public class UserController {
 
 	@RequestMapping(value = "/user/", method = RequestMethod.POST)
 	public ResponseEntity<Void> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
-		System.out.println("Creating User " + user.getUserName());
+		System.out.println("Creating User " + user.getUsername());
 
-		List<User> users = measureService.findUserByUserName(user.getUserName());
+		List<User> users = measureService.findUserByUserName(user.getUsername());
 		if (users != null && !users.isEmpty()) {
-			System.out.println("A User with name " + user.getUserName() + " already exist");
+			System.out.println("A User with name " + user.getUsername() + " already exist");
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 
@@ -67,6 +69,26 @@ public class UserController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("/user/{id}").buildAndExpand(user.getId()).toUri());
 		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+	}
+	
+	@RequestMapping(value = "/user/validate", method = RequestMethod.POST)
+	public ResponseEntity<Response> validateLogin(@RequestBody User user, UriComponentsBuilder ucBuilder) {
+		System.out.println("Validating " + user.getUsername());
+		System.out.println("Validating " + user.getPassword());
+		Response response = new Response();
+		List<User> users = measureService.findUserByUserNameAndPassword(user.getUsername(),user.getPassword());
+		if (users == null || users.isEmpty()) {			
+			response.setStatus(200);
+			response.setIsLogged(Boolean.FALSE);
+			response.setMessage("Usuario o clave incorrecta");
+			return new ResponseEntity<Response>(response,HttpStatus.OK);
+		} else {
+			System.out.println("A User with name " + user.getUsername() + " already exist");
+			response.setStatus(200);
+			response.setIsLogged(Boolean.TRUE);
+		}
+					
+		return new ResponseEntity<Response>(response, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/user/{name:.+}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

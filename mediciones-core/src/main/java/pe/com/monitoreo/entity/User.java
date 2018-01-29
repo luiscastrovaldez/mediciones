@@ -19,8 +19,8 @@ import org.hibernate.annotations.NamedQuery;
 
 @Entity
 @Table(name = "USER")
-@NamedQuery(name = "findUserByUserName", query = "SELECT u FROM User u WHERE u.userName = ?1")
-@NamedQuery(name = "findUserByUserNameAndPassword", query = "SELECT u FROM User u WHERE u.userName = ?1 and password = ?2")
+@NamedQuery(name = "findUserByusername", query = "SELECT u FROM User u WHERE u.username = ?1")
+@NamedQuery(name = "findUserByUserNameAndPassword", query = "SELECT u FROM User u WHERE u.username = ?1 and password = ?2")
 public class User extends Audit {
 
 	/**
@@ -38,27 +38,27 @@ public class User extends Audit {
 	@Column(name = "EMAIL")
 	private String email;
 
-	@Column(name = "USERNAME")
-	private String userName;
+	@Column(name = "username")
+	private String username;
 
 	public User() {
 
 	}
 
-	public User(String password, String email, String userName) {
+	public User(String password, String email, String username) {
 		super();
 		this.password = password;
 		this.email = email;
-		this.userName = userName;
+		this.username = username;
 	}
 
-	public User(Long id, String password, String email, String userName, String usuarioCreacion,
+	public User(Long id, String password, String email, String username, String usuarioCreacion,
 			Timestamp fechaCreacion, String usuarioModificacion, Timestamp fechaModificacion) {
 		super(usuarioCreacion, fechaCreacion, usuarioModificacion, fechaModificacion);
 		this.id = id;
 		this.password = password;
 		this.email = email;
-		this.userName = userName;
+		this.username = username;
 	}
 
 	public Long getId() {
@@ -85,17 +85,17 @@ public class User extends Audit {
 		this.email = email;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", password=" + password + ", email=" + email + ", userName=" + userName
+		return "User [id=" + id + ", password=" + password + ", email=" + email + ", username=" + username
 				+ ", getCreatedBy()=" + getCreatedBy() + ", getCreatedDate()=" + getCreatedDate() + ", getUpdatedBy()="
 				+ getUpdatedBy() + ", getUpdatedDate()=" + getUpdatedDate() + "]";
 	}
