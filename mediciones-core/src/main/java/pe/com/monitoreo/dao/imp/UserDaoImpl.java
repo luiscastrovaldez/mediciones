@@ -30,7 +30,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao{
 	}
 	
 	@Override
-	public List<User> findUsuarioByUserName(Serializable userName) {
+	public List<User> findUserByUserName(Serializable userName) {
 		// TODO Auto-generated method stub
 		return findByQueryOneParam(User.class,"findUserByUserName", userName);
 	}
@@ -42,7 +42,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao{
 	}
 
 	@Override
-	public List<User> findUsuarioByUserNameAndPassword(Serializable userName, Serializable password) {
+	public List<User> findUserByUserNameAndPassword(Serializable userName, Serializable password) {
 		// TODO Auto-generated method stub
 		return findByQueryTwoParam(User.class,"findUserByUserNameAndPassword", userName,password);
 	}

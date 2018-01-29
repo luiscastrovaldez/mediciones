@@ -15,7 +15,7 @@ void saveUser(User user);
 	
 	List<User> findAllUsers();
 		
-	List<User> findUsuarioByUserName(Serializable userName);
+	List<User> findUserByUserName(Serializable userName);
 	
-	List<User> findUsuarioByUserNameAndPassword(Serializable userName,Serializable password);
+	List<User> findUserByUserNameAndPassword(Serializable userName,Serializable password);
 }

@@ -95,10 +95,10 @@ public class MeasureTest {
 	}
 	
 	@Test
-	public void findUsuarioByUserNameTest() {
+	public void findUserByUserNameTest() {
 		List<User> users = null;
 		try {
-			users = monitoreoService.findUsuarioByUserName("luis.castro");
+			users = monitoreoService.findUserByUserName("luis.castro");
 			for (User user : users) {
 				System.out.println(user.toString());
 			}

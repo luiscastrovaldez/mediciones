@@ -55,15 +55,15 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<User> findUsuarioByUserName(Serializable userName) {
+	public List<User> findUserByUserName(Serializable userName) {
 		// TODO Auto-generated method stub
-		return usuarioDao.findUsuarioByUserName(userName);
+		return usuarioDao.findUserByUserName(userName);
 	}
 
 	@Override
-	public List<User> findUsuarioByUserNameAndPassword(Serializable userName, Serializable password) {
+	public List<User> findUserByUserNameAndPassword(Serializable userName, Serializable password) {
 		// TODO Auto-generated method stub
-		return usuarioDao.findUsuarioByUserNameAndPassword(userName, password);
+		return usuarioDao.findUserByUserNameAndPassword(userName, password);
 	}
 
 }

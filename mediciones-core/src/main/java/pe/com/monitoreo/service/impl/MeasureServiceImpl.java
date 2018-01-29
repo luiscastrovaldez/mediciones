@@ -52,15 +52,15 @@ public class MeasureServiceImpl implements MeasureService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<User> findUsuarioByUserName(Serializable userName) {
+	public List<User> findUserByUserName(Serializable userName) {
 		// TODO Auto-generated method stub
-		return userService.findUsuarioByUserName(userName);
+		return userService.findUserByUserName(userName);
 	}
 
 	@Override
-	public List<User> findUsuarioByUserNameAndPassword(Serializable userName, Serializable password) {
+	public List<User> findUserByUserNameAndPassword(Serializable userName, Serializable password) {
 		// TODO Auto-generated method stub
-		return userService.findUsuarioByUserNameAndPassword(userName, password);
+		return userService.findUserByUserNameAndPassword(userName, password);
 	}
 
 }
